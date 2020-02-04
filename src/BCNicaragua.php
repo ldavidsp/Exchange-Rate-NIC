@@ -13,7 +13,7 @@ class BCNicaragua implements Banks {
 	 *
 	 * Today Exchange Rate Central Bank
 	 */
-	public function todayCentralBank(): string {
+	public static function todayCentralBank(): string {
 		$today =  Carbon::now();
 		$urlWSDL = 'https://servicios.bcn.gob.ni/Tc_Servicio/ServicioTC.asmx?WSDL';
 		$options = [
@@ -47,7 +47,7 @@ class BCNicaragua implements Banks {
 	 *
 	 * Month Exchange Rate Central Bank
 	 */
-	public function monthCentralBank(int $year, int $month) {
+	public static function monthCentralBank(int $year, int $month) {
 		$urlWSDL = 'https://servicios.bcn.gob.ni/Tc_Servicio/ServicioTC.asmx?WSDL';
 		$options = [
 			'cache_wsdl' => 0,

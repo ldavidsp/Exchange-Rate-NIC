@@ -9,7 +9,7 @@ interface Banks {
 	/**
 	 * Today central bank
 	 */
-	public function todayCentralBank();
+	public static function todayCentralBank();
 
 	/**
 	 * @param int $day
@@ -17,5 +17,5 @@ interface Banks {
 	 *
 	 * Month central bank
 	 */
-	public function monthCentralBank(int $day, int $month);
+	public static function monthCentralBank(int $day, int $month);
 }
