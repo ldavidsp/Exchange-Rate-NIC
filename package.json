@@ -1,0 +1,23 @@
+{
+  "name": "exchange-rate-ni-bank",
+  "version": "1.0.0",
+  "description": "Exchange rate banks Nicaragua",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ldavidsp/Exchange-Rate-NIC.git"
+  },
+  "keywords": [
+    "dollar"
+  ],
+  "author": "Luis Solorzano <luisnic20@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ldavidsp/Exchange-Rate-NIC/issues"
+  },
+  "homepage": "https://github.com/ldavidsp/Exchange-Rate-NIC#readme",
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" }
+}
