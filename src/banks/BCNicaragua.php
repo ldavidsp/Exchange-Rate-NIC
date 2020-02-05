@@ -1,10 +1,10 @@
 <?php
 
 
-namespace NIBanks;
+namespace NIBanks\banks;
 
-use Banks\Banks;
 use Carbon\Carbon;
+use NIBanks\interfaces\Banks;
 
 class BCNicaragua implements Banks {
 
@@ -47,7 +47,7 @@ class BCNicaragua implements Banks {
    *
    * Month Exchange Rate Central Bank
    */
-  public static function monthCentralBank(int $year, int $month) {
+  public static function monthCentralBank($year, $month) {
     $urlWSDL = 'https://servicios.bcn.gob.ni/Tc_Servicio/ServicioTC.asmx?WSDL';
     $options = [
       'cache_wsdl' => 0,

@@ -1,21 +1,21 @@
 <?php
 
 
-namespace Banks;
+namespace NIBanks\interfaces;
 
 
 interface Banks {
 
   /**
-   * Today central bank
+   * Today Central Bank
    */
-  public static function todayCentralBank();
+  public static function todayCentralBank(): string ;
 
   /**
    * @param int $day
    * @param int $month
    *
-   * Month central bank
+   * Month Central Bank
    */
   public static function monthCentralBank(int $day, int $month);
 
