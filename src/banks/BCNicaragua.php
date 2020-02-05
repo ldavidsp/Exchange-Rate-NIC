@@ -3,19 +3,18 @@
 
 namespace NIBanks\banks;
 
-use Carbon\Carbon;
-use NIBanks\interfaces\Banks;
+use NIBanks\interfaces\BCN;
 
-class BCNicaragua implements Banks {
+class BCNicaragua implements BCN {
 
   /**
    * @inheritDoc
    *
    * Today Exchange Rate Central Bank
    */
-  public static function todayCentralBank(): string {
-    $today = Carbon::now();
-    $urlWSDL = 'https://servicios.bcn.gob.ni/Tc_Servicio/ServicioTC.asmx?WSDL';
+  public static function todayDollar(): string {
+    $today = new \DateTime();
+    $urlWSDL = bcnicaragua_url;
     $options = [
       'cache_wsdl' => 0,
       'trace' => 1,
@@ -47,8 +46,8 @@ class BCNicaragua implements Banks {
    *
    * Month Exchange Rate Central Bank
    */
-  public static function monthCentralBank($year, $month) {
-    $urlWSDL = 'https://servicios.bcn.gob.ni/Tc_Servicio/ServicioTC.asmx?WSDL';
+  public static function monthDollar(int $year, int $month) {
+    $urlWSDL = bcnicaragua_url;
     $options = [
       'cache_wsdl' => 0,
       'trace' => 1,

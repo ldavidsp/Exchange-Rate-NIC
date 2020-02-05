@@ -4,12 +4,12 @@
 namespace NIBanks\interfaces;
 
 
-interface Banks {
+interface BCN {
 
   /**
    * Today Central Bank
    */
-  public static function todayCentralBank(): string ;
+  public static function todayDollar(): string;
 
   /**
    * @param int $day
@@ -17,6 +17,6 @@ interface Banks {
    *
    * Month Central Bank
    */
-  public static function monthCentralBank(int $day, int $month);
+  public static function monthDollar(int $day, int $month);
 
 }
