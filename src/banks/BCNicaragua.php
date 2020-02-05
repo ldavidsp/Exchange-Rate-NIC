@@ -14,7 +14,7 @@ class BCNicaragua implements BCN {
    */
   public static function todayDollar(): string {
     $today = new \DateTime();
-    $urlWSDL = bcnicaragua_url;
+    $urlWSDL = 'https://servicios.bcn.gob.ni/Tc_Servicio/ServicioTC.asmx?WSDL';
     $options = [
       'cache_wsdl' => 0,
       'trace' => 1,
@@ -47,7 +47,7 @@ class BCNicaragua implements BCN {
    * Month Exchange Rate Central Bank
    */
   public static function monthDollar(int $year, int $month) {
-    $urlWSDL = bcnicaragua_url;
+    $urlWSDL = 'https://servicios.bcn.gob.ni/Tc_Servicio/ServicioTC.asmx?WSDL';
     $options = [
       'cache_wsdl' => 0,
       'trace' => 1,

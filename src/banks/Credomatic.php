@@ -15,7 +15,7 @@ class Credomatic implements BAC {
    */
   public static function todayDollar(): array {
     $client = new Client();
-    $response = $client->request('GET', credomatic_url);
+    $response = $client->request('GET', 'https://www.baccredomatic.com/es-ni/bac/exchange-rate-ajax/es-ni');
     if ($response->getStatusCode() == 200) {
       $dollar = json_decode($response->getBody(), TRUE);
       return [
@@ -31,7 +31,7 @@ class Credomatic implements BAC {
    */
   public static function todayEuro(): array {
     $client = new Client();
-    $response = $client->request('GET', credomatic_url);
+    $response = $client->request('GET', 'https://www.baccredomatic.com/es-ni/bac/exchange-rate-ajax/es-ni');
     if ($response->getStatusCode() == 200) {
       $dollar = json_decode($response->getBody(), TRUE);
       return [
