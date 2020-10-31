@@ -61,8 +61,8 @@ class BCNicaragua implements BCN {
     ];
 
     $params = [
-      'Mes' => 2,
-      'Ano' => 2020,
+      'Mes' => $month,
+      'Ano' => $year,
     ];
 
     try {
