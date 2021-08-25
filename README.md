@@ -14,16 +14,16 @@ Dollar Exchange Today
 ```
 Change of dollars of the month  ```Y/m```
 ```
-\NIBanks\banks\BCNicaragua::monthDollar(2020, 2);
+\NIBanks\banks\BCNicaragua::monthDollar(2021, 8);
 ```
 
 ### BAC Credomatic:
 
 Dollar Exchange
 ```
-\NIBanks\banks\Credomatic::todayDollar();
+\NIBanks\banks\BACCredomatic::todayDollar();
 ```
 Euro Exchange
 ```
-\NIBanks\banks\Credomatic::todayEuro();
+\NIBanks\banks\BACCredomatic::todayEuro();
 ```
