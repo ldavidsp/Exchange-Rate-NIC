@@ -1,25 +1,29 @@
 {
-    "name": "ldavidsp/exchange-rate-ni-bank",
-    "description": "Exchange rate banks Nicaragua",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Luis Solorzano",
-            "email": "luisnic20@gmail.com"
-        }
-    ],
-    "require": {
-        "php": "^7.0||^8.0",
-        "ext-simplexml": "*",
-        "ext-json": "*",
-        "ext-dom": "*"
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "autoload": {
-        "psr-4": {
-            "NIBanks\\": "src/"
-        }
+  "name": "ldavidsp/exchange-rate-ni-bank",
+  "description": "Exchange rate banks Nicaragua",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Luis Solorzano",
+      "email": "luisnic20@gmail.com"
     }
+  ],
+  "require": {
+    "php": "^7.0||^8.0",
+    "ext-simplexml": "*",
+    "ext-json": "*",
+    "ext-dom": "*",
+    "guzzlehttp/guzzle": "^7.3"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "autoload": {
+    "psr-4": {
+      "NIBanks\\": "src/"
+    },
+    "files": [
+      "src/helpers/helpers.php"
+    ]
+  }
 
 }

@@ -27,7 +27,7 @@ class BCNicaragua implements BCN {
    */
   public static function monthDollar(int $year, int $month): array {
     $dollar = [];
-    $htmlContent = file_get_contents('https://www.bcn.gob.ni/IRR/tipo_cambio_mensual/mes.php?mes=' . $month . '&anio=' . $year);
+    $htmlContent = file_get_contents(bcn_nicaragua($month, $year));
     $DOM = new \DOMDocument();
     $DOM->loadHTML($htmlContent);
     $nodeTD = $DOM->getElementsByTagName('td');
