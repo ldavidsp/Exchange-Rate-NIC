@@ -9,6 +9,15 @@ if (!function_exists('bac_credomatic')) {
   }
 }
 
+if (!function_exists('banpro_nicaragua')) {
+  /**
+   * @return string
+   */
+  function banpro_nicaragua(): string {
+    return 'https://www.banprogrupopromerica.com.ni/umbraco/Surface/TipoCambio/Run';
+  }
+}
+
 if (!function_exists('bcn_nicaragua')) {
   /**
    * @param $month

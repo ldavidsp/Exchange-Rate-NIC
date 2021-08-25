@@ -27,3 +27,10 @@ Euro Exchange
 ```
 \NIBanks\banks\BACCredomatic::todayEuro();
 ```
+
+### BANPRO:
+
+Dollar Exchange
+```
+\NIBanks\banks\GrupoBanpro::todayDollar();
+```
