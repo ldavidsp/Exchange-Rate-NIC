@@ -34,3 +34,7 @@ Dollar Exchange
 ```
 \NIBanks\banks\GrupoBanpro::todayDollar();
 ```
+Euro Exchange
+```
+\NIBanks\banks\GrupoBanpro::todayEuro();
+```
