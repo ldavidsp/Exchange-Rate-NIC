@@ -10,9 +10,10 @@
   ],
   "require": {
     "php": "^7.0||^8.0",
-    "ext-simplexml": "*",
     "ext-json": "*",
     "ext-dom": "*",
+    "ext-soap": "*",
+    "ext-simplexml": "*",
     "guzzlehttp/guzzle": "^7.3"
   },
   "minimum-stability": "dev",

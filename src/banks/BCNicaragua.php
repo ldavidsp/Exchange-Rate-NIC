@@ -14,10 +14,31 @@ class BCNicaragua implements BCN {
    */
   public static function todayDollar(): string {
     $today = new \DateTime();
-    $today->format('d');
-    $dollar = self::monthDollar($today->format('Y'), $today->format('m'));
-	  $position = array_search($today->format('Y-m-d'), array_column($dollar, 'date'));
-	  return $dollar[$position]->amount;
+    $urlWSDL = bcn_nicaragua();
+    $options = [
+      'cache_wsdl' => 0,
+      'trace' => 1,
+      'stream_context' => stream_context_create([
+        'ssl' => [
+          'verify_peer' => FALSE,
+          'verify_peer_name' => FALSE,
+          'allow_self_signed' => TRUE,
+        ],
+      ]),
+    ];
+
+    $params = [
+      'Dia' => $today->format('d'),
+      'Mes' => $today->format('m'),
+      'Ano' => $today->format('Y'),
+    ];
+
+    try {
+      $client = new \SoapClient($urlWSDL, $options);
+      return $client->RecuperaTC_Dia($params)->RecuperaTC_DiaResult;
+    } catch (\SoapFault $e) {
+      return $e->getMessage();
+    }
   }
 
   /**
@@ -26,25 +47,46 @@ class BCNicaragua implements BCN {
    * Month Exchange Rate Central Bank
    */
   public static function monthDollar(int $year, int $month): array {
-    $dollar = [];
-    $htmlContent = file_get_contents(bcn_nicaragua($month, $year));
-    $DOM = new \DOMDocument();
-    $DOM->loadHTML($htmlContent);
-    $nodeTD = $DOM->getElementsByTagName('td');
+    $urlWSDL = bcn_nicaragua();
+    $options = [
+      'cache_wsdl' => 0,
+      'trace' => 1,
+      'stream_context' => stream_context_create([
+        'ssl' => [
+          'verify_peer' => FALSE,
+          'verify_peer_name' => FALSE,
+          'allow_self_signed' => TRUE,
+        ],
+      ]),
+    ];
 
-    foreach ($nodeTD as $key => $td) {
-      $id = ($key + 1);
-      if ($id % 2 != 0 && $id != 1) {
-        $day = explode('-', $nodeTD[$key]->textContent)[0];
-        $date = $year . '-' . $month . '-' . $day;
-        $dollar[] = (object) [
-          'date' => trim($date),
-          'amount' => trim($nodeTD[$id]->textContent),
-        ];
+    $params = [
+      'Mes' => 2,
+      'Ano' => 2020,
+    ];
+
+    try {
+      $dollar = [];
+      $client = new \SoapClient($urlWSDL, $options);
+      $xml = (array) $client->RecuperaTC_Mes($params)->RecuperaTC_MesResult;
+      $response = simplexml_load_string($xml['any']);
+      $json = json_encode($response);
+      $array = json_decode($json, TRUE);
+
+      foreach ($array['Tc'] as $key => $value) {
+        $val = (object) $value;
+        if (!empty($val->Fecha) && !empty($val->Valor)) {
+          $dollar[$key] = [
+            'date' => $val->Fecha,
+            'amount' => $val->Valor,
+          ];
+        }
       }
-    }
 
-    return $dollar;
+      return $dollar;
+    } catch (\SoapFault $e) {
+      return $e->getMessage();
+    }
   }
 
 }

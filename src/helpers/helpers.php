@@ -20,12 +20,9 @@ if (!function_exists('banpro_nicaragua')) {
 
 if (!function_exists('bcn_nicaragua')) {
   /**
-   * @param $month
-   * @param $year
-   *
    * @return string
    */
-  function bcn_nicaragua($month, $year): string {
-    return "https://www.bcn.gob.ni/IRR/tipo_cambio_mensual/mes.php?mes=' . $month . '&anio=' . $year'";
+  function bcn_nicaragua(): string {
+    return "https://servicios.bcn.gob.ni/Tc_Servicio/ServicioTC.asmx?WSDL";
   }
 }
